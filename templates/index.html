@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NextTrack | Deezer + Last.fm + MusicBrainz</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>NextTrack</h1>
+      <p>Search Deezer previews, add songs to your playlist, and get recommendations using Last.fm similarity and MusicBrainz metadata.</p>
+    </header>
+
+    <section class="panel player-panel">
+      <div>
+        <p class="label">Now playing</p>
+        <h2 id="nowTitle">Nothing playing yet</h2>
+        <p id="nowArtist">Search for a song or play your playlist.</p>
+      </div>
+      <audio id="audioPlayer" controls></audio>
+    </section>
+
+    <section class="panel recommendation-panel">
+      <div class="section-heading">
+        <div>
+          <p class="label">Easy access</p>
+          <h2>Recommendations</h2>
+        </div>
+        <span id="strategy" class="pill">Waiting</span>
+      </div>
+      <p class="hint">Add songs to your playlist, then click Recommend next.</p>
+
+      <div class="mode-selector">
+        <label for="recommendationMode">Recommendation mode</label>
+        <select id="recommendationMode">
+          <option value="familiar">Familiar</option>
+          <option value="balanced" selected>Balanced</option>
+          <option value="discover">Discover</option>
+        </select>
+        <p id="modeDescription" class="hint">
+          Balances relevant matches with a varied selection of artists.
+        </p>
+      </div>
+
+      <div id="recommendation" class="recommendation-empty">No recommendations yet.</div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Search music</h2>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Search song, artist, genre, mood...">
+          <button id="searchBtn">Search</button>
+        </div>
+        <div id="searchStatus" class="status"></div>
+        <div id="results" class="card-list"></div>
+      </div>
+
+      <div class="panel playlist-panel">
+        <div class="section-heading">
+          <h2>Your playlist</h2>
+          <span id="playlistCount" class="pill">0 songs</span>
+        </div>
+        <div class="button-row">
+          <button id="playPlaylistBtn">Play playlist</button>
+          <button id="recommendBtn" class="primary">Recommend next</button>
+          <button id="clearBtn" class="danger">Clear</button>
+        </div>
+        <div id="playlist" class="card-list"></div>
+      </div>
+    </section>
+
+    <section class="panel api-panel">
+      <div class="section-heading">
+        <h2>API response</h2>
+        <span class="pill">For testing</span>
+      </div>
+      <pre id="apiOutput"></pre>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
